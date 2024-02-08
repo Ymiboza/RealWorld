@@ -1,0 +1,55 @@
+.container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.card-block {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.card-icon-block,
+.avatar-block {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+#card {
+  width: 940px;
+  background-color: black;
+  color: white;
+}
+
+#card-link {
+  font-size: 27px;
+  text-decoration: inherit;
+  color: #05b577;
+  cursor: pointer;
+}
+
+#card-link:hover {
+  text-decoration: inherit;
+  color: #09da91;
+}
+
+#avatar-name {
+  font-size: 30px;
+  font-family: "Regular";
+}
+
+#avatar-date {
+    font-size: 15px;
+    font-family: "Regular";
+    color: #09da91;
+}

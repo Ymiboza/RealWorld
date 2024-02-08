@@ -1,0 +1,59 @@
+.editProfile-container {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+  background-color: black;
+  height: 570px;
+  width: 500px;
+  color: white;
+  border-radius: 10px;
+}
+
+.editProfile-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#usernameField,
+#emailField,
+#passwordField,
+#repeatPasswordField {
+  width: 400px;
+  color: white;
+  border-bottom: none;
+  background-color: #05b5772c;
+  border-radius: 5px;
+  font-family: "Regular";
+}
+
+#usernameField:hover,
+#emailField:hover,
+#passwordField:hover,
+#repeatPasswordField:hover {
+  background-color: #05b57768;
+}
+
+.button-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-top: 25px;
+  flex-direction: column;
+}
+
+#editProfile-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #05b577;
+  font-family: "Regular";
+  font-size: 17px;
+  color: black;
+}
+
+#editProfile-button:hover {
+  background-color: #09da91;
+}

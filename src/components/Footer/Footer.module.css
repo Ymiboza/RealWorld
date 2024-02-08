@@ -1,0 +1,21 @@
+.footer-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#footer-pagination button {
+  color: white !important;
+  font-family: "Regular";
+}
+
+#footer-pagination button:hover {
+  background-color: #05b577;
+}
+
+.MuiPagination-ul {
+    outline: 1px solid red !important;
+    background-color: red !important;
+}
+

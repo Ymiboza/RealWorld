@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+
+#header-title {
+  font-size: 45px;
+  color: white;
+  font-family: "Regular";
+  margin-left: 50px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.header-buttons {
+  margin-right: 50px;
+}
+
+#header-button-signIn {
+  color: white;
+  font-family: "Regular";
+  margin-right: 20px;
+  font-size: 19px;
+}
+
+#header-button-signUp {
+  color: #05b577;
+  font-family: "Regular";
+  border-color: #05b577;
+  font-size: 19px;
+}
+
+#header-button-signIn:hover {
+  color: #09da91;
+  text-shadow: 1px 1px 1px black;
+}
+
+#header-button-signUp:hover {
+  color: black;
+  border-color: #09da91;
+  background-color: #09da91;
+}
