@@ -7,7 +7,7 @@ import Header from "../Header/Header";
 
 const Layout = () => {
   const location = useLocation();
-  const isBlogListPage = location.pathname === "/blog-list";
+  const isBlogListPage = location.pathname === "/articles";
   const isHomePage = location.pathname === "/";
 
   const dispatch = useDispatch();

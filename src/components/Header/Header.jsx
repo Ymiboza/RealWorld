@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className={styles.header}>
-      <Link to={"/blog-list"}>
+      <Link to={"/articles"}>
         <Typography id={styles["header-title"]} variant="h1" component="h1">
           <span style={{ color: "#05b577" }}>R</span>
           <span>eal</span>

@@ -2,12 +2,14 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+
 }
 
 .card-icon-block,
 .avatar-block {
   display: flex;
   align-items: center;
+  
 }
 
 .avatar-text {
@@ -15,10 +17,11 @@
   flex-direction: column;
   align-items: center;
   margin-right: 20px;
+  
 }
 
 #card {
-  width: 940px;
+  width: 60vw;
   background-color: black;
   color: white;
   margin-bottom: 26px;
@@ -36,6 +39,11 @@
   color: #09da91;
 }
 
+#avatar {
+  width: 60px;
+  height: 60px;
+}
+
 #avatar-name {
   font-size: 30px;
   font-family: "Regular";
@@ -45,4 +53,65 @@
   font-size: 15px;
   font-family: "Regular";
   color: #09da91;
+}
+
+@media (max-width: 1370px) {
+  #card-link {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1175px) {
+  #card-link {
+    font-size: 18px;
+  }
+
+  #avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  #avatar-name {
+    font-size: 25px;
+  }
+
+  #avatar-date {
+    font-size: 13px;
+    font-family: "Regular";
+    color: #09da91;
+  }
+}
+
+@media (max-width: 1005px) {
+  .card-block {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+  }
+  
+  .card-icon-block,
+  .avatar-block  {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .avatar-block {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  
+  .avatar-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    
+  }
+
+  #avatar {
+    margin-right: 15px;
+  }
+
 }

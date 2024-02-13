@@ -38,7 +38,7 @@ const ArticleCard = ({ article }) => {
         <div className={styles["card-block"]}>
           <div className={styles["card-link-block"]}>
             <div className={styles["card-icon-block"]}>
-              <Link to={`/article/${slug}`}>
+              <Link to={`/articles/${slug}`}>
                 <div id={styles["card-link"]}>
                   {title.length > 30 ? `${title.slice(0, 30)}...` : title}
                 </div>
@@ -58,7 +58,7 @@ const ArticleCard = ({ article }) => {
                 className={styles["Chip"]}
                 variant="outlined"
                 label={tag.length > 10 ? `${tag.slice(0, 10)}...` : tag}
-                style={{ color: "white" }}
+                style={{ color: "white", marginRight: "10px" }}
               />
             ))}
           </div>
@@ -76,8 +76,9 @@ const ArticleCard = ({ article }) => {
               </Typography>
             </div>
             <Avatar
+              id={styles["avatar"]}
               src={image}
-              sx={{ bgcolor: "#05b577", width: 56, height: 56 }}
+              sx={{ bgcolor: "#05b577" }}
             ></Avatar>
           </div>
         </div>
