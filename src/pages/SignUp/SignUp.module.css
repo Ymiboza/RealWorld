@@ -45,6 +45,10 @@
   flex-direction: column;
 }
 
+#signUp-checkbox svg{
+  color: #05b577;
+}
+
 #signUp-button {
   width: 100%;
   padding: 12px;
@@ -57,3 +61,8 @@
 #signUp-button:hover {
   background-color: #09da91;
 }
+
+#signUp-button:disabled {
+  background-color: #8c8c8c;
+}
+

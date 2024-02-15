@@ -57,3 +57,8 @@
 #signIn-button:hover {
   background-color: #09da91;
 }
+
+#signIn-button:disabled {
+  background-color: #8c8c8c;
+}
+

@@ -83,7 +83,7 @@ const ArticleCard = ({ article }) => {
           </div>
         </div>
         <Typography style={{ fontFamily: "Regular" }} variant="body1">
-          {description}
+          {description > 100 ? `${description.slice(0, 100)}...` : description}
         </Typography>
       </CardContent>
     </Card>

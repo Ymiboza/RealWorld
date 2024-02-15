@@ -16,9 +16,9 @@ import { getOneArticle } from "../../store/articleSlice";
 import styles from "./Article.module.css";
 
 const Article = () => {
+  //????? TITLE ?????
   const dispatch = useDispatch();
   const article = useSelector((state) => state.articles.article);
-  console.log("article", article);
   const {
     title,
     favoritesCount,
@@ -31,6 +31,8 @@ const Article = () => {
   const username = author?.username;
   const image = author?.image;
   const { slug } = useParams();
+
+  console.log("title", title && title.length);
 
   useEffect(() => {
     dispatch(getOneArticle(slug));
@@ -52,7 +54,11 @@ const Article = () => {
           <div className={styles["post-block"]}>
             <div className={styles["post-link-block"]}>
               <div className={styles["post-icon-block"]}>
-                <Link id={styles["post-link"]}>{title}</Link>
+                <Link id={styles["post-link"]}> 
+                  {title
+                    ? title.length > 30 && `${title.slice(0, 30)}...`
+                    : title}
+                </Link>
                 <IconButton
                   edge="end"
                   aria-label="like"

@@ -19,6 +19,12 @@
   margin-right: 50px;
 }
 
+.header-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #header-button-signIn {
   color: white;
   font-family: "Regular";
@@ -42,4 +48,44 @@
   color: black;
   border-color: #09da91;
   background-color: #09da91;
+}
+
+#create-article {
+  color: white;
+  font-family: "Regular";
+  margin-right: 20px;
+  font-size: 19px;
+  border: 1px solid white;
+  margin-left: 20px;
+}
+
+#create-article:hover {
+  color: black;
+  background-color: white;
+}
+
+#user {
+  color: white;
+  font-family: "Regular";
+  font-size: 26px;
+  padding-left: 0px;
+}
+
+#user:hover {
+  color: #09da91;
+}
+
+#log-out {
+  color: #05b577;
+  font-family: "Regular";
+  border-color: #05b577;
+  font-size: 19px;
+  border: 1px solid #05b577;
+}
+
+#log-out:hover {
+  color: black;
+  border-color: #09da91;
+  background-color: #09da91;
+  border: 1px solid #09da91;
 }

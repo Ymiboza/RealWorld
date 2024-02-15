@@ -57,3 +57,7 @@
 #editProfile-button:hover {
   background-color: #09da91;
 }
+
+#editProfile-button:disabled {
+  background-color: #8c8c8c;
+}
