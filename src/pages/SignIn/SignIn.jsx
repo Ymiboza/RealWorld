@@ -34,7 +34,6 @@ const SignIn = () => {
       email: event.email,
       password: event.password,
     };
-    console.log("data:", data);
     dispatch(loginUser(data));
     setFormSubmitted(true);
   };

@@ -47,7 +47,7 @@ const Article = () => {
     return formattedDate;
   };
 
-  return (
+  return title && title.length && (
     <div className={styles.container}>
       <Card id={styles["post"]}>
         <CardContent>

@@ -63,27 +63,27 @@
 }
 
 #create-delete-button {
-  color: #ff1d1d;
+  color: black;
   border-color: #ff1d1d;
+  background-color: #ff1d1d;
   margin-left: 20px;
 }
 
 #create-add-button {
-  color: #008cff;
+  color: black;
   border-color: #008cff;
+  background-color: #008cff;
   margin-left: 20px;
 }
 
 #create-delete-button:hover {
-  color: black;
-  border-color: #ff3232;
-  background-color: #ff3232;
+  border-color: #ff4545;
+  background-color: #ff4545;
 }
 
 #create-add-button:hover {
-  color: black;
-  border-color: #209bff;
-  background-color: #209bff;
+  border-color: #54b2ff;
+  background-color: #54b2ff;
 }
 
 #tagsField {

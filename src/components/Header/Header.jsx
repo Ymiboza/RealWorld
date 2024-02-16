@@ -40,14 +40,17 @@ const Header = () => {
           <div className={styles["header-user"]}>
             <Link to={"edit-profile"}>
               <Tooltip arrow title="Edit profile" placement="left">
-                <Button id={styles["user"]}>{user.username}</Button>
+                <Button id={styles["user"]}>
+                  {user.username}{" "}
+                  <Avatar
+                    id={styles["avatar"]}
+                    src={user.image ? user.image : image}
+                    sx={{ bgcolor: "#05b577", width: "60px", height: "60px", marginLeft:"10px" }}
+                  ></Avatar>
+                </Button>
               </Tooltip>
             </Link>
-            <Avatar
-              id={styles["avatar"]}
-              src={user.image ? user.image : image}
-              sx={{ bgcolor: "#05b577", width: "60px", height: "60px" }}
-            ></Avatar>
+
             <Link to={"create-article"}>
               <Button id={styles["create-article"]}>Create article</Button>
             </Link>

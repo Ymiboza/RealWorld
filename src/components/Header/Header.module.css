@@ -73,6 +73,7 @@
 
 #user:hover {
   color: #09da91;
+  overflow: 0;
 }
 
 #log-out {
@@ -89,3 +90,4 @@
   background-color: #09da91;
   border: 1px solid #09da91;
 }
+

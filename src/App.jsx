@@ -8,8 +8,13 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
+import { useSelector } from "react-redux";
 
 function App() {
+  const article = useSelector((state)=> state.articles.article)
+  const articleString = JSON.stringify(article)
+  localStorage.setItem('article', articleString)
+  const savedArticleString = localStorage.getItem('article')
   return (
     <>
       <Routes>
