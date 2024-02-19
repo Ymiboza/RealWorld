@@ -12,10 +12,10 @@ import {
 } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getOneArticle } from "../../store/articleSlice";
-import styles from "./Article.module.css";
 import { deletePost } from "../../store/postsSlice";
+import styles from "./Article.module.css";
 
 const Article = () => {
   const dispatch = useDispatch();
