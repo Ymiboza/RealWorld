@@ -24,6 +24,11 @@
   color: white;
   margin-bottom: 26px;
   box-shadow: 0px 0px 5px 1px #006b45;
+  cursor: pointer;
+}
+
+#card:hover {
+  box-shadow: 0px 0px 5px 2px #09da91;
 }
 
 #card-link {
