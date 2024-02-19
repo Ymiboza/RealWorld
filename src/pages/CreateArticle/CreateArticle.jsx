@@ -1,21 +1,29 @@
 import AddIcon from "@mui/icons-material/Add";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { Button, Card, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addPost } from "../../store/postsSlice";
 import styles from "./CreateArticle.module.css";
 
 const CreateArticle = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
+  const [tags, setTags] = useState([]);
+  const navigate = useNavigate();
 
   const handleAddTag = () => {
-    if (inputValue.trim() !== "") {
-      setInputValue("");
-      console.log(setInputValue(""))
+    if (inputValue.trim() !== '') {
+      setTags([...tags, inputValue])
+      setInputValue('')
     }
+  }
+
+  const handleDeleteTag = (tagToDelete) => {
+    const updatedTags = tags.filter((tag) => tag !== tagToDelete);
+    setTags(updatedTags);
   };
 
   const {
@@ -28,11 +36,11 @@ const CreateArticle = () => {
   });
 
   const onSubmit = async (event) => {
-    const data = { ...event };
+    const data = { ...event, tags};
     await dispatch(addPost(data));
     reset();
+    navigate("/articles");
   };
-
   const inputPropsStyle = {
     color: "white",
     "&::placeholder": {
@@ -40,9 +48,10 @@ const CreateArticle = () => {
       fontFamily: "Regular",
     },
   };
+
   return (
     <div className={styles.container}>
-      <Card id={styles["create-post"]} style={{ height: 780 }}>
+      <Card id={styles["create-post"]}>
         <Typography
           variant="h4"
           component="h4"
@@ -108,34 +117,50 @@ const CreateArticle = () => {
           </div>
           <div className={styles["tags-block"]}>
             <div className={styles["tags-content"]}>
-              <TextField
-                id={styles.tagsField}
-                value={inputValue || ''}
-                label="Tags"
-                variant="outlined"
-                margin="normal"
-                color="success"
-                InputProps={{ style: inputPropsStyle }}
-                InputLabelProps={{ style: { color: "white" } }}
-                focused
-                onChange={(e) => setInputValue(e.target.value)}
-              />
-              <Button
-                onClick={handleAddTag}
-                id={styles["create-add-button"]}
-                variant="contained"
-              >
-                <AddIcon />
-              </Button>
-              <Button id={styles["create-delete-button"]} variant="contained">
-                <DeleteForeverIcon />
-              </Button>
+              <div className={styles["tags"]}>
+                <TextField
+                  id={styles.tagsField}
+                  value={inputValue || ""}
+                  label="Tags"
+                  variant="outlined"
+                  margin="normal"
+                  color="success"
+                  InputProps={{ style: inputPropsStyle }}
+                  InputLabelProps={{ style: { color: "white" } }}
+                  focused
+                  onChange={(e) => setInputValue(e.target.value)}
+                />
+                <Button
+                  onClick={handleAddTag}
+                  id={styles["create-add-button"]}
+                  variant="contained"
+                >
+                  <AddIcon />
+                </Button>
+              </div>
+              <Box>
+                {tags.map((tag, index) => (
+                  <div key={index} id={styles["tag-button"]}>
+                    <Box key={index} id={styles["tags"]}>
+                      {tag.length > 10
+                        ? `${tag.slice(0, 10)}...`
+                        : tag}
+                    </Box>
+                    <Button
+                      id={styles["create-delete-button"]}
+                      variant="contained"
+                      onClick={() => handleDeleteTag(tag)}
+                    >
+                      <DeleteForeverIcon />
+                    </Button>
+                  </div>
+                ))}
+              </Box>
             </div>
           </div>
           <div className={styles["main-button"]}>
             <Button
               id={styles["create-button"]}
-              onClick={handleSubmit(onSubmit)}
               type="submit"
               variant="contained"
             >

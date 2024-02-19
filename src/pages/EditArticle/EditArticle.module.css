@@ -1,113 +1,142 @@
 .container {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 30px;
-  }
-  
-  .create-textField {
-    display: flex;
-    flex-direction: column;
-    margin-left: 32px;
-    margin-right: 32px;
-  }
-  
-  .tags-block {
-    margin-bottom: 50px;
-  }
-  
-  .tags-content {
-    margin-left: 32px;
-    margin-right: 32px;
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .main-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 32px;
-    margin-right: 32px;
-  }
-  
-  #create-post {
-    width: 940px;
-    background-color: black;
-    color: white;
-  }
-  
-  #titleField,
-  #shortField,
-  #textField {
-    width: 100%;
-    color: white;
-    border-bottom: none;
-    background-color: #05b5772c;
-    border-radius: 5px;
-    font-family: "Regular";
-  }
-  
-  #titleField:hover,
-  #shortField:hover,
-  #textField:hover {
-    background-color: #05b57768;
-  }
-  
-  #create-add-button,
-  #create-delete-button {
-    font-family: "Regular";
-    font-size: 19px;
-  }
-  
-  #create-delete-button {
-    color: #ff1d1d;
-    border-color: #ff1d1d;
-    margin-left: 20px;
-  }
-  
-  #create-add-button {
-    color: #008cff;
-    border-color: #008cff;
-    margin-left: 20px;
-  }
-  
-  #create-delete-button:hover {
-    color: black;
-    border-color: #ff3232;
-    background-color: #ff3232;
-  }
-  
-  #create-add-button:hover {
-    color: black;
-    border-color: #209bff;
-    background-color: #209bff;
-  }
-  
-  #tagsField {
-    width: 100%;
-    color: white;
-    border-bottom: none;
-    background-color: #05b5772c;
-    border-radius: 5px;
-    font-family: "Regular";
-  }
-  
-  #tagsField:hover {
-    background-color: #05b57768;
-  }
-  
-  #create-button {
-    padding: 12px;
-    background-color: #05b577;
-    font-family: "Regular";
-    font-size: 17px;
-    color: black;
-    width: 100%;
-  }
-  
-  #create-button:hover {
-    background-color: #09da91;
-  }
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.create-textField {
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.tags-block {
+  margin-bottom: 35px;
+}
+
+.tags-content {
+  margin-left: 32px;
+  margin-right: 32px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.main-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+#create-post {
+  width: 940px;
+  height: 70%;
+  background-color: black;
+  color: white;
+  margin-bottom: 50px;
+}
+
+#titleField,
+#shortField,
+#textField {
+  width: 100%;
+  color: white;
+  border-bottom: none;
+  background-color: #05b5772c;
+  border-radius: 5px;
+  font-family: "Regular";
+}
+
+#titleField:hover,
+#shortField:hover,
+#textField:hover {
+  background-color: #05b57768;
+}
+
+#create-add-button,
+#create-delete-button {
+  font-family: "Regular";
+  font-size: 19px;
+}
+
+#create-delete-button {
+  color: black;
+  border-color: #ff1d1d;
+  background-color: #ff1d1d;
+}
+
+#create-add-button {
+  color: black;
+  border-color: #008cff;
+  background-color: #008cff;
+  margin-left: 20px;
+}
+
+#create-delete-button:hover {
+  border-color: #ff4545;
+  background-color: #ff4545;
+}
+
+#create-add-button:hover {
+  border-color: #54b2ff;
+  background-color: #54b2ff;
+}
+
+#tagsField {
+  width: 100%;
+  color: white;
+  border-bottom: none;
+  background-color: #05b5772c;
+  border-radius: 5px;
+  font-family: "Regular";
+}
+
+#tagsField:hover {
+  background-color: #05b57768;
+}
+
+#create-button {
+  padding: 12px;
+  background-color: #05b577;
+  font-family: "Regular";
+  font-size: 17px;
+  color: black;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#create-button:hover {
+  background-color: #09da91;
+}
+
+#tag-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#tags {
+  color: white;
+  background-color: #05b5772c;
+  border-radius: 5px;
+  font-family: "Regular";
+  margin-right: 15px;
+  padding: 15px 15px;
+  border: 2px solid #0bf64e44;
+  margin-bottom: 15px;
+  margin-left: 0px;
+}
+

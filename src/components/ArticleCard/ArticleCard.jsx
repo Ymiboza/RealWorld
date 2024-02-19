@@ -38,7 +38,7 @@ const ArticleCard = ({ article }) => {
         <div className={styles["card-block"]}>
           <div className={styles["card-link-block"]}>
             <div className={styles["card-icon-block"]}>
-              <Link to={`/articles/${slug}`}>
+              <Link to={`/${slug}`}>
                 <div id={styles["card-link"]}>
                   {title.length > 30 ? `${title.slice(0, 30)}...` : title}
                 </div>
@@ -52,12 +52,12 @@ const ArticleCard = ({ article }) => {
               </IconButton>
               <span style={{ marginLeft: "12px" }}>{favoritesCount}</span>
             </div>
-            {tagList.map((tag, index) => (
+            {tagList && tagList.map((tag, index) => (
               <Chip
                 key={index}
                 className={styles["Chip"]}
                 variant="outlined"
-                label={tag.length > 10 ? `${tag.slice(0, 10)}...` : tag}
+                label={tag && tag.length > 10 ? `${tag.slice(0, 10)}...` : tag}
                 style={{ color: "white", marginRight: "10px" }}
               />
             ))}

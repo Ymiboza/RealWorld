@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.post-icon-block {
+  margin-bottom: 15px;
+}
+
 .avatar-text {
   display: flex;
   flex-direction: column;
