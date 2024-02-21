@@ -73,6 +73,47 @@ export const deletePost = createAsyncThunk(
   }
 );
 
+export const favoritePost = createAsyncThunk(
+  "articles/favoritePost",
+  async (slug, { rejectWithValue }) => {
+    const config = {
+      headers: {
+        Authorization: `Token ${Cookies.get("token")}`,
+      },
+    };
+    try {
+      const response = await axios.post(
+        `https://blog.kata.academy/api/articles/${slug}/favorite`,
+        {},
+        config
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const unFavoritePost = createAsyncThunk(
+  "articles/unFavoritePost",
+  async (slug, { rejectWithValue }) => {
+    const config = {
+      headers: {
+        Authorization: `Token ${Cookies.get("token")}`,
+      },
+    };
+    try {
+      const response = await axios.delete(
+        `https://blog.kata.academy/api/articles/${slug}/favorite`,
+        config
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 const postsSlice = createSlice({
   name: "postsSlice",
   initialState: {
@@ -106,7 +147,29 @@ const postsSlice = createSlice({
       .addCase(editPost.rejected, (state, action) => {
         state.status = "rejected";
         state.error = action.payload;
-      });
+      })
+      .addCase(favoritePost.pending, (state) => {
+        state.status = "pending";
+        state.error = false;
+      })
+      .addCase(favoritePost.fulfilled, (state) => {
+        state.status = "resolved";
+      })
+      .addCase(favoritePost.rejected, (state, action) => {
+        state.status = "rejected";
+        state.error = action.payload;
+      })
+      .addCase(unFavoritePost.pending, (state) => {
+        state.status = "pending";
+        state.error = false;
+      })
+      .addCase(unFavoritePost.fulfilled, (state) => {
+        state.status = "resolved";
+      })
+      .addCase(unFavoritePost.rejected, (state, action) => {
+        state.status = "rejected";
+        state.error = action.payload;
+      })
   },
 });
 

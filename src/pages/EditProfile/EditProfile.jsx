@@ -106,6 +106,7 @@ const EditProfile = () => {
             id={styles.passwordField}
             label="New password"
             variant="outlined"
+            type="password"
             margin="normal"
             color="success"
             InputProps={{ style: inputPropsStyle }}

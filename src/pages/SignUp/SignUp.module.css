@@ -3,10 +3,16 @@
   top: 25%;
   left: 40%;
   background-color: black;
-  height: 650px;
+  height: 56vh;
   width: 500px;
   color: white;
   border-radius: 10px;
+}
+
+#SHOW {
+  outline: 1px solid red;
+  background-color: white;
+  color: black;
 }
 
 .signUp-form {

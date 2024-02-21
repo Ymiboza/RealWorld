@@ -101,6 +101,7 @@ const CreateArticle = () => {
               id={styles.textField}
               label="Text"
               multiline
+              fullWidth
               rows={8}
               focused
               variant="outlined"
@@ -133,7 +134,7 @@ const CreateArticle = () => {
                 <Button
                   onClick={handleAddTag}
                   id={styles["create-add-button"]}
-                  variant="contained"
+                  variant="outlined"
                 >
                   <AddIcon />
                 </Button>
@@ -148,7 +149,7 @@ const CreateArticle = () => {
                     </Box>
                     <Button
                       id={styles["create-delete-button"]}
-                      variant="contained"
+                      variant="outlined"
                       onClick={() => handleDeleteTag(tag)}
                     >
                       <DeleteForeverIcon />

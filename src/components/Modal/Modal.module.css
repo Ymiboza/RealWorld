@@ -1,0 +1,28 @@
+.buttons-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+
+#title {
+  font-family: "Regular";
+  color: white;
+  margin-bottom: 25px;
+}
+
+#button-yes,
+#button-no  {
+    font-family: "Regular";
+    font-size: 19px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+#button-yes:hover,
+#button-no:hover {
+    color: black;
+    background-color:#05b577;
+    border: 1px solid #05b577;
+}

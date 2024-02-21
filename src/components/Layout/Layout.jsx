@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Outlet, useLocation } from "react-router-dom";
 import { getArticles } from "../../store/articleSlice";
 import Footer from "../Footer/Footer";
@@ -9,14 +9,19 @@ const Layout = () => {
   const location = useLocation();
   const isBlogListPage = location.pathname === "/articles";
   const isHomePage = location.pathname === "/";
-
   const dispatch = useDispatch();
-  const { currentPage, totalPages } = useSelector((state) => state.articles);
-  const [page, setPage] = useState(currentPage);
+  const [page, setPage] = useState(() => {
+    const storedPage = localStorage.getItem('currentPage')
+    return storedPage ? parseInt(storedPage, 10) : 1
+  })
 
   useEffect(() => {
     dispatch(getArticles(page));
   }, [dispatch, page]);
+
+  useEffect(() => {
+    localStorage.setItem('currentPage', page.toString())
+  }, [page])
 
   const handlePageChange = (_, page) => {
     setPage(page);
@@ -35,9 +40,8 @@ const Layout = () => {
       {isBlogListPage && (
         <footer>
           <Footer
-            currentPage={currentPage}
-            totalPages={totalPages}
             onPageChange={handlePageChange}
+            page={page}
           />
         </footer>
       )}

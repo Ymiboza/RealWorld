@@ -52,3 +52,26 @@
   font-family: "Regular";
   color: #09da91;
 }
+
+#edit-button {
+  border: none;
+  color: white;
+  padding: none;
+  border-radius: 800px;
+  margin-right: 10px;
+}
+
+#edit-button:hover {
+  color: #09da91;
+}
+
+#delete-button {
+  border: none;
+  color: white;
+  padding: none;
+  border-radius: 800px;
+}
+
+#delete-button:hover {
+  color: #ff4545;
+}

@@ -81,6 +81,7 @@ const SignIn = () => {
         <TextField
           id={styles.passwordField}
           label="Password"
+          type="password"
           variant="outlined"
           margin="normal"
           color="success"

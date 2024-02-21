@@ -19,12 +19,11 @@
 
 #card {
   width: 60vw;
-  min-width: 60vw;
+  height: 12vh;
   background-color: black;
   color: white;
   margin-bottom: 26px;
   box-shadow: 0px 0px 5px 1px #006b45;
-  cursor: pointer;
 }
 
 #card:hover {
@@ -57,6 +56,11 @@
   font-size: 15px;
   font-family: "Regular";
   color: #09da91;
+}
+
+#description {
+  width: 100%;
+  word-wrap: break-word;
 }
 
 @media (max-width: 1370px) {

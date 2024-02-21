@@ -118,10 +118,13 @@ const SignUp = () => {
         <TextField
           id={styles.passwordField}
           label="Password"
+          type="password"
           variant="outlined"
           margin="normal"
           color="success"
-          InputProps={{ style: inputPropsStyle }}
+          InputProps={{
+            style: inputPropsStyle,
+          }}
           InputLabelProps={{ style: { color: "white" } }}
           {...register("password", {
             required: "Password is required",
@@ -144,6 +147,7 @@ const SignUp = () => {
         <TextField
           id={styles.repeatPasswordField}
           label="Repeat password"
+          type="password"
           variant="outlined"
           margin="normal"
           color="success"

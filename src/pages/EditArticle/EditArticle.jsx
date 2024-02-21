@@ -40,7 +40,7 @@ const EditArticle = () => {
   });
 
   const onSubmit = async (event) => {
-    const data = { ...event, tags};
+    const data = { ...event, tags };
     data.slug = slug;
     await dispatch(editPost(data));
     navigate(`/${slug}`);
@@ -53,7 +53,6 @@ const EditArticle = () => {
       fontFamily: "Regular",
     },
   };
-
 
   return (
     <div className={styles.container}>
@@ -142,24 +141,25 @@ const EditArticle = () => {
                 <Button
                   onClick={handleAddTag}
                   id={styles["create-add-button"]}
-                  variant="contained"
+                  variant="outlined"
                 >
                   <AddIcon />
                 </Button>
               </div>
               <Box>
-                {tags && tags.map((tag, index) => (
-                  <div key={index} id={styles["tag-button"]}>
-                    <Box id={styles["tags"]}>{tag}</Box>
-                    <Button
-                      id={styles["create-delete-button"]}
-                      variant="contained"
-                      onClick={() => handleDeleteTag(tag)}
-                    >
-                      <DeleteForeverIcon />
-                    </Button>
-                  </div>
-                ))}
+                {tags &&
+                  tags.map((tag, index) => (
+                    <div key={index} id={styles["tag-button"]}>
+                      <Box id={styles["tags"]}>{tag}</Box>
+                      <Button
+                        id={styles["create-delete-button"]}
+                        variant="outlined"
+                        onClick={() => handleDeleteTag(tag)}
+                      >
+                        <DeleteForeverIcon />
+                      </Button>
+                    </div>
+                  ))}
               </Box>
             </div>
           </div>

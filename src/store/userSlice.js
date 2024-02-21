@@ -115,7 +115,7 @@ const userSlice = createSlice({
     user: null,
     status: null,
     error: null,
-    image: "https://static.productionready.io/images/smiley-cyrus.jpg",
+    image: "https://i.pinimg.com/originals/03/fd/dc/03fddc06151ab5228fc38f33494f53d8.jpg",
   },
   reducers: {
     logOut(state) {

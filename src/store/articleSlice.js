@@ -7,7 +7,6 @@ const baseApi = "https://blog.kata.academy/api/";
 export const getArticles = createAsyncThunk(
   "articles/getArticles",
   async (page, { rejectWithValue }) => {
-    //? page UNDEFINED
     const config = {
       headers: {
         "Content-Type": "application/json",

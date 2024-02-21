@@ -1,23 +1,35 @@
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import EditIcon from "@mui/icons-material/Edit";
 import {
   Avatar,
-  Button,
   Card,
   CardContent,
+  Checkbox,
   Chip,
   Divider,
-  IconButton,
   Stack,
+  Tooltip,
   Typography,
 } from "@mui/material";
-import { useEffect } from "react";
+import { red } from "@mui/material/colors";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import ModalDelete from "../../components/Modal/Modal";
 import { getOneArticle } from "../../store/articleSlice";
-import { deletePost } from "../../store/postsSlice";
+import {
+  deletePost,
+  favoritePost,
+  unFavoritePost,
+} from "../../store/postsSlice";
 import styles from "./Article.module.css";
 
 const Article = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
   const article = useSelector((state) => state.articles.article);
   const user = useSelector((state) => state.users.user);
@@ -25,6 +37,7 @@ const Article = () => {
 
   const {
     title,
+    favorited,
     favoritesCount,
     tagList,
     author,
@@ -58,8 +71,24 @@ const Article = () => {
   };
 
   const onDelete = () => {
-    dispatch(deletePost(slug)).then(() => navigate('/articles'))
-  }
+    dispatch(deletePost(slug)).then(() => navigate("/articles"));
+  };
+
+  const onLikes = async (isChecked) => {
+    if (isChecked) {
+      await dispatch(favoritePost(slug));
+    } else {
+      await dispatch(unFavoritePost(slug));
+    }
+
+    dispatch(getOneArticle(slug));
+  };
+
+  const handleLike = async (event) => {
+    if (Cookies.get("token")) {
+      onLikes(event.target.checked);
+    }
+  };
 
   return (
     title &&
@@ -75,28 +104,33 @@ const Article = () => {
                       {title.length > 30 ? `${title.slice(0, 30)}...` : title}
                     </Link>
                   )}
-                  <IconButton
-                    edge="end"
-                    aria-label="like"
-                    style={{ color: "white" }}
-                  >
-                    <FavoriteBorderIcon />
-                  </IconButton>
-                  <span style={{ marginLeft: "12px", marginRight: "20px" }}>
-                    {favoritesCount}
-                  </span>
+                  <Checkbox
+                    onChange={handleLike}
+                    checked={favorited}
+                    icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />}
+                    sx={{
+                      color: "white",
+                      "&.Mui-checked": {
+                        color: red[600],
+                      },
+                    }}
+                  />
+                  <span style={{ marginRight: "10px" }}>{favoritesCount}</span>
                   {editFunc() && (
-                    <Stack direction="row" spacing={2}>
-                      <Link to={`/${slug}/edit-article`}>
-                        <Button
-                          variant="outlined"
-                        >
-                          Edit
-                        </Button>
-                      </Link>
-                      <Button onClick={onDelete} variant="outlined" key="Delete">
-                        Delete
-                      </Button>
+                    <Stack direction="row" spacing={0}>
+                      <Tooltip arrow title="Edit article" placement="top">
+                        <Link to={`/${slug}/edit-article`}>
+                          <EditIcon id={styles["edit-button"]} />
+                        </Link>
+                      </Tooltip>
+                      <Tooltip arrow title="Delete article" placement="top">
+                        <DeleteForeverIcon
+                          onClick={handleOpen}
+                          id={styles["delete-button"]}
+                        />
+                      </Tooltip>
+                      <ModalDelete open={open} handleClose={handleClose} deleteArticle={onDelete}/>
                     </Stack>
                   )}
                 </div>
@@ -106,7 +140,9 @@ const Article = () => {
                       key={index}
                       className={styles["Chip"]}
                       variant="outlined"
-                      label={tag && tag.length > 20 ? `${tag.slice(0, 20)}...` : tag}
+                      label={
+                        tag && tag.length > 20 ? `${tag.slice(0, 20)}...` : tag
+                      }
                       style={{ color: "white", marginRight: "10px" }}
                     />
                   ))}
@@ -131,10 +167,12 @@ const Article = () => {
               </div>
             </div>
             <Typography
+              variant="subtitle2"
               style={{
                 marginBottom: "15px",
                 fontFamily: "Regular",
                 fontSize: "18px",
+                wordWrap: "break-word",
               }}
             >
               {description}
@@ -152,7 +190,14 @@ const Article = () => {
                 backgroundColor: "#05b577",
               }}
             />
-            <Typography style={{ fontFamily: "Regular", fontSize: "23px" }}>
+            <Typography
+              variant="body1"
+              style={{
+                fontFamily: "Regular",
+                fontSize: "23px",
+                wordWrap: "break-word",
+              }}
+            >
               {body}
             </Typography>
           </CardContent>
