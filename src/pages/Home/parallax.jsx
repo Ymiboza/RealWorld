@@ -18,23 +18,23 @@ const ZoomParallax = () => {
 
   const image = {
     Picture1:
-      "https://img.freepik.com/free-photo/amazing-shot-ferchensee-lake-bavaria-germany_181624-29701.jpg?w=1800&t=st=1708521168~exp=1708521768~hmac=f7b2d6c130fc9ace270cdba646bd74c339db3eedd4f9a8609144315e07ce41cb  ",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer60__880.jpg", //?2
     Picture2:
-      "  https://img.freepik.com/free-photo/mountain-with-pine-trees-covered-with-fogs_198169-89.jpg?w=1800&t=st=1708520713~exp=1708521313~hmac=0244c0740aa9135b9c92d7fec68237ab017ad83ef220197c33818bf3b14c0146",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer70__880.jpg", //?1
     Picture3:
-      "https://img.freepik.com/free-photo/foggy-forest_198169-143.jpg?w=1800&t=st=1708520841~exp=1708521441~hmac=6896f0115b1743bdf8dae9a963e5a924e4eea82e97943f4df84ca8607c39536a",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer64__880.jpg", //?3
     Picture4:
-      "https://img.freepik.com/free-photo/high-angle-shot-beautiful-tropical-jungle-full-trees_181624-4961.jpg?w=2000&t=st=1708520830~exp=1708521430~hmac=2fc449b3d45f00044b84915b7849d084f6ea0c4c8f55940c76d9ebd53105c4b4",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer68__880.jpg", //?8
     Picture5:
-      "https://img.freepik.com/free-photo/beautiful-shot-forest-with-tall-green-trees_181624-20615.jpg?w=1800&t=st=1708520528~exp=1708521128~hmac=c217ef6388ed6f3e17a42295c40c6d50cbf85c99bd0c079ea1a05f34642f4945",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer66__880.jpg", //?7
     Picture6:
-      "https://img.freepik.com/free-photo/curvy-narrow-muddy-road-dark-forest-surrounded-by-greenery-little-light-coming-from_181624-1825.jpg?w=1800&t=st=1708520734~exp=1708521334~hmac=ca45611e2dd450012ef4ab822ae451b0c7e6c5ab9ad3cc7857649a64a5d18f1a",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer69__880.jpg", //?9
     Picture7:
-      " https://img.freepik.com/free-photo/dew-dark-leaves_23-2147810915.jpg?w=1800&t=st=1708521466~exp=1708522066~hmac=a289d988deba9f6723d644de147a69286a5ea0d0a0ce00901282e6ead797ff2d",
+      "https://images.unsplash.com/photo-1542708993627-b6e5bbae43c4?q=80&w=2644&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", //?5
     Picture8:
-      "https://img.freepik.com/free-photo/backdrop-green-leaves_23-2147836966.jpg?w=1800&t=st=1708521440~exp=1708522040~hmac=44d751cd3c5392698e16cbcadb56947f31fe080b53870217937c3d6323d8a24e",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer47__880.jpg", //?6
     Picture9:
-      "https://img.freepik.com/free-photo/fresh-green-fern-leaves_23-2147831030.jpg?w=1800&t=st=1708520822~exp=1708521422~hmac=7d1bc5512d571799cc031edfca23d45c4028e6a6c72c3920ea7f91f375492716",
+      "https://www.boredpanda.com/blog/wp-content/uploads/2014/11/Karol-Nienartowicz-The-Polish-Adventurous-Mountain-Photographer45__880.jpg", //?4
   };
 
   const pictures = [
