@@ -11,8 +11,8 @@ const ZoomParallax = () => {
     offset: ["start start", "end end"],
   });
 
-  const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
-  const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
+  const scale4 = useTransform(scrollYProgress, [0, 1], [1, 6]);
+  const scale6 = useTransform(scrollYProgress, [0, 1], [1, 7]);
   const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
