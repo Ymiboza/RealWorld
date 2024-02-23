@@ -7,6 +7,7 @@ import {
   CardContent,
   Checkbox,
   Chip,
+  CircularProgress,
   Divider,
   Stack,
   Tooltip,
@@ -34,6 +35,7 @@ const Article = () => {
   const article = useSelector((state) => state.articles.article);
   const user = useSelector((state) => state.users.user);
   const navigate = useNavigate();
+  const status = useSelector((state) => state.articles.status);
 
   const {
     title,
@@ -91,119 +93,139 @@ const Article = () => {
   };
 
   return (
-    title &&
-    title.length && (
-      <div className={styles.container}>
-        <Card id={styles["post"]}>
-          <CardContent>
-            <div className={styles["post-block"]}>
-              <div className={styles["post-link-block"]}>
-                <div className={styles["post-icon-block"]}>
-                  {title && title.length && (
-                    <Link id={styles["post-link"]}>
-                      {title.length > 30 ? `${title.slice(0, 30)}...` : title}
-                    </Link>
-                  )}
-                  <Checkbox
-                    onChange={handleLike}
-                    checked={favorited}
-                    icon={<FavoriteBorder />}
-                    checkedIcon={<Favorite />}
-                    sx={{
-                      color: "white",
-                      "&.Mui-checked": {
-                        color: red[600],
-                      },
-                    }}
-                  />
-                  <span style={{ marginRight: "10px" }}>{favoritesCount}</span>
-                  {editFunc() && (
-                    <Stack direction="row" spacing={0}>
-                      <Tooltip arrow title="Edit article" placement="top">
-                        <Link to={`/${slug}/edit-article`}>
-                          <EditIcon id={styles["edit-button"]} />
+    <>
+      {status === "pending" ? (
+        <div className={styles.container}>
+          <Card id={styles["post"]}>
+            <CircularProgress id={styles.loader} size={150} color="success" />
+          </Card>
+        </div>
+      ) : (
+        title &&
+        title.length && (
+          <div className={styles.container}>
+            <Card id={styles["post"]}>
+              <CardContent>
+                <div className={styles["post-block"]}>
+                  <div className={styles["post-link-block"]}>
+                    <div className={styles["post-icon-block"]}>
+                      {title && title.length && (
+                        <Link id={styles["post-link"]}>
+                          {title.length > 30
+                            ? `${title.slice(0, 30)}...`
+                            : title}
                         </Link>
-                      </Tooltip>
-                      <Tooltip arrow title="Delete article" placement="top">
-                        <DeleteForeverIcon
-                          onClick={handleOpen}
-                          id={styles["delete-button"]}
+                      )}
+                      <Checkbox
+                        onChange={handleLike}
+                        checked={favorited}
+                        icon={<FavoriteBorder />}
+                        checkedIcon={<Favorite />}
+                        sx={{
+                          color: "white",
+                          "&.Mui-checked": {
+                            color: red[600],
+                          },
+                        }}
+                      />
+                      <span style={{ marginRight: "10px" }}>
+                        {favoritesCount}
+                      </span>
+                      {editFunc() && (
+                        <Stack direction="row" spacing={0}>
+                          <Tooltip arrow title="Edit article" placement="top">
+                            <Link to={`/${slug}/edit-article`}>
+                              <EditIcon id={styles["edit-button"]} />
+                            </Link>
+                          </Tooltip>
+                          <Tooltip arrow title="Delete article" placement="top">
+                            <DeleteForeverIcon
+                              onClick={handleOpen}
+                              id={styles["delete-button"]}
+                            />
+                          </Tooltip>
+                          <ModalDelete
+                            open={open}
+                            handleClose={handleClose}
+                            deleteArticle={onDelete}
+                          />
+                        </Stack>
+                      )}
+                    </div>
+                    {tagList &&
+                      tagList.map((tag, index) => (
+                        <Chip
+                          key={index}
+                          className={styles["Chip"]}
+                          variant="outlined"
+                          label={
+                            tag && tag.length > 20
+                              ? `${tag.slice(0, 20)}...`
+                              : tag
+                          }
+                          style={{ color: "white", marginRight: "10px" }}
                         />
-                      </Tooltip>
-                      <ModalDelete open={open} handleClose={handleClose} deleteArticle={onDelete}/>
-                    </Stack>
-                  )}
-                </div>
-                {tagList &&
-                  tagList.map((tag, index) => (
-                    <Chip
-                      key={index}
-                      className={styles["Chip"]}
-                      variant="outlined"
-                      label={
-                        tag && tag.length > 20 ? `${tag.slice(0, 20)}...` : tag
-                      }
-                      style={{ color: "white", marginRight: "10px" }}
+                      ))}
+                  </div>
+                  <div className={styles["avatar-block"]}>
+                    <div className={styles["avatar-text"]}>
+                      <Typography
+                        id={styles["avatar-name"]}
+                        variant="h2"
+                        component="h2"
+                      >
+                        {username && username}
+                      </Typography>
+                      <Typography id={styles["avatar-date"]} variant="body1">
+                        {formatDate(updatedAt)}
+                      </Typography>
+                    </div>
+                    <Avatar
+                      src={image}
+                      sx={{ bgcolor: "#05b577", width: 56, height: 56 }}
                     />
-                  ))}
-              </div>
-              <div className={styles["avatar-block"]}>
-                <div className={styles["avatar-text"]}>
-                  <Typography
-                    id={styles["avatar-name"]}
-                    variant="h2"
-                    component="h2"
-                  >
-                    {username && username}
-                  </Typography>
-                  <Typography id={styles["avatar-date"]} variant="body1">
-                    {formatDate(updatedAt)}
-                  </Typography>
+                  </div>
                 </div>
-                <Avatar
-                  src={image}
-                  sx={{ bgcolor: "#05b577", width: 56, height: 56 }}
-                />
-              </div>
-            </div>
-            <Typography
-              variant="subtitle2"
-              style={{
-                marginBottom: "15px",
-                fontFamily: "Regular",
-                fontSize: "18px",
-                wordWrap: "break-word",
-              }}
-            >
-              {description}
-            </Typography>
+                <Typography
+                  variant="subtitle2"
+                  style={{
+                    marginBottom: "15px",
+                    fontFamily: "Regular",
+                    fontSize: "18px",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  {description}
+                </Typography>
 
-            <Divider
-              orientation="horizontal"
-              variant="middle"
-              style={{
-                marginTop: "20px",
-                marginBottom: "15px",
-                width: "100%",
-                marginLeft: "0px",
-                marginRight: "0px",
-                backgroundColor: "#05b577",
-              }}
-            />
-            <Typography
-              variant="body1"
-              style={{
-                fontFamily: "Regular",
-                fontSize: "23px",
-                wordWrap: "break-word",
-              }}
-            >
-              {body}
-            </Typography>
-          </CardContent>
-        </Card>
-      </div>
-    )
+                <Divider
+                  orientation="horizontal"
+                  variant="middle"
+                  style={{
+                    marginTop: "20px",
+                    marginBottom: "15px",
+                    width: "100%",
+                    marginLeft: "0px",
+                    marginRight: "0px",
+                    backgroundColor: "#05b577",
+                  }}
+                />
+                <Typography
+                  variant="body1"
+                  style={{
+                    fontFamily: "Regular",
+                    fontSize: "23px",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  {body}
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
+        )
+      )}
+    </>
   );
 };
 

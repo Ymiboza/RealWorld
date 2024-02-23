@@ -1,6 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { Box, Button, Card, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, Snackbar, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -18,12 +18,19 @@ const EditArticle = () => {
   );
   const navigate = useNavigate();
   const { slug } = useParams();
+  const [open, setOpen] = useState(false);
 
   const handleAddTag = () => {
-    if (inputValue.trim() !== "") {
-      setTags([...tags, inputValue]);
+    if (inputValue.trim() !== "" && !tags.includes(inputValue.trim())) {
+      setTags([...tags, inputValue.trim()]);
       setInputValue("");
+    } else {
+      setOpen(true);
     }
+  };
+  
+  const errorTags = () => {
+    return tags.includes(inputValue.trim());
   };
 
   const handleDeleteTag = (tagToDelete) => {
@@ -160,6 +167,17 @@ const EditArticle = () => {
                       </Button>
                     </div>
                   ))}
+                  {errorTags() && (
+                  <Snackbar open={open} autoHideDuration={1000}>
+                    <Alert
+                      severity="error"
+                      variant="filled"
+                      sx={{ width: "100%" }}
+                    >
+                      This tag is already exists
+                    </Alert>
+                  </Snackbar>
+                )}
               </Box>
             </div>
           </div>

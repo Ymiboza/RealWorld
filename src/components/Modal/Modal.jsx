@@ -14,12 +14,13 @@ const ModalDelete = ({ open, handleClose, deleteArticle }) => {
     transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: "black",
-    boxShadow: "0px 0px 5px 2px #09da91",
+    boxShadow: "0px 0px 10px 3px #09da91",
     p: 6,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
+    border: "none"
   };
   return (
     <Modal

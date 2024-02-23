@@ -1,6 +1,14 @@
 import AddIcon from "@mui/icons-material/Add";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { Box, Button, Card, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  Card,
+  Snackbar,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -13,13 +21,20 @@ const CreateArticle = () => {
   const [inputValue, setInputValue] = useState("");
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const handleAddTag = () => {
-    if (inputValue.trim() !== '') {
-      setTags([...tags, inputValue])
-      setInputValue('')
+    if (inputValue.trim() !== "" && !tags.includes(inputValue.trim())) {
+      setTags([...tags, inputValue.trim()]);
+      setInputValue("");
+    } else {
+      setOpen(true);
     }
-  }
+  };
+  
+  const errorTags = () => {
+    return tags.includes(inputValue.trim());
+  };
 
   const handleDeleteTag = (tagToDelete) => {
     const updatedTags = tags.filter((tag) => tag !== tagToDelete);
@@ -36,7 +51,7 @@ const CreateArticle = () => {
   });
 
   const onSubmit = async (event) => {
-    const data = { ...event, tags};
+    const data = { ...event, tags };
     await dispatch(addPost(data));
     reset();
     navigate("/articles");
@@ -143,9 +158,7 @@ const CreateArticle = () => {
                 {tags.map((tag, index) => (
                   <div key={index} id={styles["tag-button"]}>
                     <Box key={index} id={styles["tags"]}>
-                      {tag.length > 10
-                        ? `${tag.slice(0, 10)}...`
-                        : tag}
+                      {tag.length > 10 ? `${tag.slice(0, 10)}...` : tag}
                     </Box>
                     <Button
                       id={styles["create-delete-button"]}
@@ -156,6 +169,17 @@ const CreateArticle = () => {
                     </Button>
                   </div>
                 ))}
+                {errorTags() && (
+                  <Snackbar open={open} autoHideDuration={1000}>
+                    <Alert
+                      severity="error"
+                      variant="filled"
+                      sx={{ width: "100%" }}
+                    >
+                      This tag is already exists
+                    </Alert>
+                  </Snackbar>
+                )}
               </Box>
             </div>
           </div>

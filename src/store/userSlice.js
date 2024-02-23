@@ -125,9 +125,9 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createUser.pending, (state) => {
+      .addCase(createUser.pending, (state,action) => {
         state.status = "pending";
-        state.error = null;
+        state.error = action.payload;
       })
       .addCase(createUser.fulfilled, (state, action) => {
         state.status = "resolved";
