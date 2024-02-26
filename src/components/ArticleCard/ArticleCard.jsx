@@ -66,14 +66,15 @@ const ArticleCard = ({ article, page }) => {
         <div className={styles["card-block"]}>
           <div className={styles["card-link-block"]}>
             <div className={styles["card-icon-block"]}>
+            <div className={styles["title-title"]}>
               <Link to={`/${slug}`}>
                 <div id={styles["card-link"]}>
-                  {title.length > 30 ? `${title.slice(0, 30)}...` : title}
+                  {title.length > 25 ? `${title.slice(0, 25)}...` : title}
                 </div>
               </Link>
               <Checkbox
-                icon={<FavoriteBorder />}
-                checkedIcon={<Favorite />}
+                icon={<FavoriteBorder id={styles.like} />}
+                checkedIcon={<Favorite  />}
                 onChange={handleLike}
                 checked={favorited}
                 sx={{
@@ -83,13 +84,36 @@ const ArticleCard = ({ article, page }) => {
                   },
                 }}
               />
-              <span>{favoritesCount}</span>
+              <span id={styles["favorites-count"]}>{favoritesCount}</span>
+              </div>
+              <div className={styles["avatar-block"]}>
+                <div className={styles["avatar-text"]}>
+                  <Typography
+                    id={styles["avatar-name"]}
+                    variant="h2"
+                    component="h2"
+                    onClick={handleCardClick}
+                  >
+                    {username}
+                  </Typography>
+                  <Typography id={styles["avatar-date"]} variant="body1">
+                    {formatDate(createdAt)}
+                  </Typography>
+                </div>
+                <Avatar
+                  id={styles["avatar"]}
+                  onClick={handleCardClick}
+                  src={image}
+                  sx={{ bgcolor: "#05b577" }}
+                ></Avatar>
+              </div>
             </div>
             {tagList &&
               tagList.map((tag, index) => (
                 <Chip
                   key={index}
-                  className={styles["Chip"]}
+                  onClick={handleCardClick}
+                  id={styles["tag"]}
                   variant="outlined"
                   label={
                     tag && tag.length > 10 ? `${tag.slice(0, 10)}...` : tag
@@ -98,30 +122,11 @@ const ArticleCard = ({ article, page }) => {
                 />
               ))}
           </div>
-          <div className={styles["avatar-block"]}>
-            <div className={styles["avatar-text"]}>
-              <Typography
-                id={styles["avatar-name"]}
-                variant="h2"
-                component="h2"
-              >
-                {username}
-              </Typography>
-              <Typography id={styles["avatar-date"]} variant="body1">
-                {formatDate(createdAt)}
-              </Typography>
-            </div>
-            <Avatar
-              id={styles["avatar"]}
-              src={image}
-              sx={{ bgcolor: "#05b577" }}
-            ></Avatar>
-          </div>
         </div>
         <Typography
           onClick={handleCardClick}
           id={styles["description"]}
-          style={{ fontFamily: "Regular", cursor: "pointer", }}
+          style={{ fontFamily: "Regular", cursor: "pointer" }}
           variant="body1"
         >
           {description > 100 ? `${description.slice(0, 100)}...` : description}

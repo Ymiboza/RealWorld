@@ -1,4 +1,4 @@
-import { Button, TextField, Typography } from "@mui/material";
+import { Alert, Button, Snackbar, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import styles from "./SignIn.module.css";
 
 const SignIn = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [open, setOpen] = useState(false);
   const error = useSelector((state) => state.users.error);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,27 +39,41 @@ const SignIn = () => {
     setFormSubmitted(true);
   };
 
+  
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+
   useEffect(() => {
     if (formSubmitted && error === null) {
       navigate(-1);
+      reset();
+    } else if (error) {
+      setOpen(true);
       reset();
     }
   }, [formSubmitted, error, reset, navigate]);
 
   return (
+    <>
+    {error  && (
+        <Snackbar open={open} autoHideDuration={2500} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="error"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          The email or password was entered incorrectly!
+        </Alert>
+      </Snackbar>
+      )}
     <div className={styles["signIn-container"]}>
-      <Typography
-        style={{
-          fontFamily: "Regular",
-          fontSize: "27px",
-          marginTop: "50px",
-          marginBottom: "20px",
-          textAlign: "center",
-          color: "white",
-        }}
-      >
-        Sign In
-      </Typography>
+      <Typography id={styles["title"]}>Sign In</Typography>
       <form onSubmit={handleSubmit(onSubmit)} className={styles["signIn-form"]}>
         <TextField
           id={styles.emailField}
@@ -116,10 +131,7 @@ const SignIn = () => {
         >
           Login
         </Button>
-        <Typography
-          variant="body2"
-          style={{ color: "white", marginTop: "10px", fontFamily: "Regular" }}
-        >
+        <Typography variant="body2" id={styles["link-text"]}>
           Don’t have an account?{" "}
           <Link to={"/sign-up"} style={{ color: "#05b577" }}>
             Sign Up.
@@ -127,6 +139,7 @@ const SignIn = () => {
         </Typography>
       </div>
     </div>
+    </>
   );
 };
 

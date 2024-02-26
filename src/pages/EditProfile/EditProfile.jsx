@@ -46,18 +46,7 @@ const EditProfile = () => {
   return (
     user && (
       <div className={styles["editProfile-container"]}>
-        <Typography
-          style={{
-            fontFamily: "Regular",
-            fontSize: "27px",
-            marginTop: "50px",
-            marginBottom: "20px",
-            textAlign: "center",
-            color: "white",
-          }}
-        >
-          Edit Profile
-        </Typography>
+        <Typography id={styles["title"]}>Edit Profile</Typography>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className={styles["editProfile-form"]}

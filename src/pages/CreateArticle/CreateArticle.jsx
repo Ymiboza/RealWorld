@@ -68,14 +68,9 @@ const CreateArticle = () => {
     <div className={styles.container}>
       <Card id={styles["create-post"]}>
         <Typography
+          id={styles.title}
           variant="h4"
           component="h4"
-          style={{
-            fontFamily: "Regular",
-            fontSize: "40px",
-            textAlign: "center",
-            marginTop: "50px",
-          }}
         >
           Create new article
         </Typography>

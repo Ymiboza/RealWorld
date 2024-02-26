@@ -42,7 +42,7 @@
 }
 
 #create-post {
-  width: 940px;
+  width: 60vw;
   height: 70%;
   background-color: black;
   color: white;
@@ -141,3 +141,25 @@
   margin-left: 0px;
 }
 
+#title {
+  font-family: "Regular";
+  font-size: 40px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+@media (max-width: 730px) {
+  #title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  #title {
+    font-size: 20px;
+  }
+
+  #create-post {
+    width: 90vw;
+  }
+}

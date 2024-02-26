@@ -15,7 +15,7 @@ export const getArticles = createAsyncThunk(
     };
     try {
       const response = await axios.get(
-        `${baseApi}articles?offset=${(page - 1) * 6}&limit=6`,
+        `${baseApi}articles?offset=${(page - 1) * 5}&limit=5`,
         config
       );
       return response.data;

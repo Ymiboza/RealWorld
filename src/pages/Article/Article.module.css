@@ -13,20 +13,31 @@
   margin-bottom: 20px;
 }
 
-.post-icon-block,
-.avatar-block {
+.title-title {
   display: flex;
   align-items: center;
 }
 
+.post-link-block {
+  width: 100%;
+}
+
+.post-icon-block,
+.avatar-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .post-icon-block {
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .avatar-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-right: 20px;
 }
 
@@ -83,4 +94,186 @@
   transform: translate(-50%, -50%);
 }
 
+#tag {
+  margin-bottom: 10px;
+}
 
+#description {
+  margin-bottom: "15px";
+  font-family: "Regular";
+  font-size: 18px;
+}
+
+#text {
+  font-family: "Regular";
+  font-size: 23px;
+}
+
+@media (max-width: 1465px) {
+  .post-block {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+  }
+
+  .post-icon-block,
+  .avatar-block {
+    display: flex;
+    align-items: center;
+  }
+
+  .post-icon-block {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .avatar-block {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+  }
+
+  #avatar {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 1070px) {
+  #post-link {
+    font-size: 14px;
+  }
+
+  #description {
+    font-size: 11px;
+  }
+  
+  #tag {
+    font-size: 8px;
+  }
+
+  #text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 765px) {
+  #post-link {
+    font-size: 12px;
+  }
+
+  #description {
+    font-size: 10px;
+  }
+  
+  #tag {
+    font-size: 8px;
+  }
+
+  #text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 655px) {
+  .avatar-block {
+    margin-bottom: 5px;
+  }
+
+  #post-link {
+    font-size: 10px;
+  }
+
+  #tag {
+    font-size: 7px;
+  }
+
+  #description {
+    font-size: 8px;
+  }
+
+  #text {
+    font-size: 12px;
+  }
+
+  #avatar-name {
+    font-size: 15px;
+  }
+
+  #avatar-date {
+    font-size: 10px;
+  }
+
+  #like {
+    width: 15px;
+    height: 15px;
+  }
+
+  #favorites-count {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  #post {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 516px) {
+  #post-link {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 458px) {
+  #post-link {
+    font-size: 8px;
+  }
+
+  #tag {
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 397px) {
+  #post-link {
+    font-size: 10px;
+  }
+
+  #tag {
+    font-size: 10px;
+  }
+
+    
+  #description {
+    font-size: 8px;
+  }
+
+  #text {
+    font-size: 10px;
+  }
+
+  #avatar-name {
+    font-size: 13px;
+  }
+
+  #avatar-date {
+    font-size: 8px;
+  }
+
+  #like {
+    width: 15px;
+    height: 15px;
+  }
+
+  #favorites-count {
+    font-size: 12px;
+  }
+}

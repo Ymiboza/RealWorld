@@ -8,19 +8,7 @@ import { Button } from "@mui/material";
 
 const ModalDelete = ({ open, handleClose, deleteArticle }) => {
   const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "black",
-    boxShadow: "0px 0px 10px 3px #09da91",
     p: 6,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    border: "none"
   };
   return (
     <Modal
@@ -30,8 +18,9 @@ const ModalDelete = ({ open, handleClose, deleteArticle }) => {
       onClose={handleClose}
       closeAfterTransition
       slots={{ backdrop: Backdrop }}
+      id={styles.modal}
     >
-      <Box sx={style}>
+      <Box id={styles.box} sx={style}>
         <Typography id={styles["title"]} variant="h6" component="h2">
           You want to delete this article?
         </Typography>

@@ -109,54 +109,85 @@ const Article = () => {
                 <div className={styles["post-block"]}>
                   <div className={styles["post-link-block"]}>
                     <div className={styles["post-icon-block"]}>
-                      {title && title.length && (
-                        <Link id={styles["post-link"]}>
-                          {title.length > 30
-                            ? `${title.slice(0, 30)}...`
-                            : title}
-                        </Link>
-                      )}
-                      <Checkbox
-                        onChange={handleLike}
-                        checked={favorited}
-                        icon={<FavoriteBorder />}
-                        checkedIcon={<Favorite />}
-                        sx={{
-                          color: "white",
-                          "&.Mui-checked": {
-                            color: red[600],
-                          },
-                        }}
-                      />
-                      <span style={{ marginRight: "10px" }}>
-                        {favoritesCount}
-                      </span>
-                      {editFunc() && (
-                        <Stack direction="row" spacing={0}>
-                          <Tooltip arrow title="Edit article" placement="top">
-                            <Link to={`/${slug}/edit-article`}>
-                              <EditIcon id={styles["edit-button"]} />
-                            </Link>
-                          </Tooltip>
-                          <Tooltip arrow title="Delete article" placement="top">
-                            <DeleteForeverIcon
-                              onClick={handleOpen}
-                              id={styles["delete-button"]}
+                      <div className={styles["title-title"]}>
+                        {title && title.length && (
+                          <Link id={styles["post-link"]}>
+                            {title.length > 30
+                              ? `${title.slice(0, 30)}...`
+                              : title}
+                          </Link>
+                        )}
+                        <Checkbox
+                          onChange={handleLike}
+                          checked={favorited}
+                          icon={<FavoriteBorder id={styles.like} />}
+                          checkedIcon={<Favorite />}
+                          sx={{
+                            color: "white",
+                            "&.Mui-checked": {
+                              color: red[600],
+                            },
+                          }}
+                        />
+                        <span
+                          id={styles["favorites-count"]}
+                          style={{ marginRight: "10px" }}
+                        >
+                          {favoritesCount}
+                        </span>
+                        {editFunc() && (
+                          <Stack direction="row" spacing={0}>
+                            <Tooltip arrow title="Edit article" placement="top">
+                              <Link to={`/${slug}/edit-article`}>
+                                <EditIcon id={styles["edit-button"]} />
+                              </Link>
+                            </Tooltip>
+                            <Tooltip
+                              arrow
+                              title="Delete article"
+                              placement="top"
+                            >
+                              <DeleteForeverIcon
+                                onClick={handleOpen}
+                                id={styles["delete-button"]}
+                              />
+                            </Tooltip>
+                            <ModalDelete
+                              open={open}
+                              handleClose={handleClose}
+                              deleteArticle={onDelete}
                             />
-                          </Tooltip>
-                          <ModalDelete
-                            open={open}
-                            handleClose={handleClose}
-                            deleteArticle={onDelete}
-                          />
-                        </Stack>
-                      )}
+                          </Stack>
+                        )}
+                      </div>
+                      <div className={styles["avatar-block"]}>
+                        <div className={styles["avatar-text"]}>
+                          <Typography
+                            id={styles["avatar-name"]}
+                            variant="h2"
+                            component="h2"
+                          >
+                            {username && username}
+                          </Typography>
+                          <Typography
+                            id={styles["avatar-date"]}
+                            variant="body1"
+                          >
+                            {formatDate(updatedAt)}
+                          </Typography>
+                        </div>
+                        <Avatar
+                          id={styles["avatar"]}
+                          src={image}
+                          sx={{ bgcolor: "#05b577", width: 56, height: 56 }}
+                        />
+                      </div>
                     </div>
                     {tagList &&
                       tagList.map((tag, index) => (
                         <Chip
                           key={index}
-                          className={styles["Chip"]}
+                          id={styles["tag"]}
                           variant="outlined"
                           label={
                             tag && tag.length > 20
@@ -167,31 +198,11 @@ const Article = () => {
                         />
                       ))}
                   </div>
-                  <div className={styles["avatar-block"]}>
-                    <div className={styles["avatar-text"]}>
-                      <Typography
-                        id={styles["avatar-name"]}
-                        variant="h2"
-                        component="h2"
-                      >
-                        {username && username}
-                      </Typography>
-                      <Typography id={styles["avatar-date"]} variant="body1">
-                        {formatDate(updatedAt)}
-                      </Typography>
-                    </div>
-                    <Avatar
-                      src={image}
-                      sx={{ bgcolor: "#05b577", width: 56, height: 56 }}
-                    />
-                  </div>
                 </div>
                 <Typography
+                  id={styles["description"]}
                   variant="subtitle2"
                   style={{
-                    marginBottom: "15px",
-                    fontFamily: "Regular",
-                    fontSize: "18px",
                     wordWrap: "break-word",
                   }}
                 >
@@ -211,10 +222,9 @@ const Article = () => {
                   }}
                 />
                 <Typography
+                  id={styles["text"]}
                   variant="body1"
                   style={{
-                    fontFamily: "Regular",
-                    fontSize: "23px",
                     wordWrap: "break-word",
                   }}
                 >

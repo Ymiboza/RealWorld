@@ -13,3 +13,28 @@
   transform: translate(-50%, -50%);
 }
 
+@media (max-width: 1785px) {
+  #loader {
+    left: 45%;
+  }
+}
+
+@media (max-width: 1160px) {
+  #loader {
+    left: 40%;
+  }
+}
+
+@media (max-width: 600px) {
+  #loader {
+    left: 35%;
+  }
+}
+
+@media (max-width: 400px) {
+  #loader {
+    left: 30%;
+  }
+}
+
+

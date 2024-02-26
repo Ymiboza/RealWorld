@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .container .sticky .el .imageContainer {
@@ -26,7 +26,7 @@
   height: 310px;
   overflow: hidden;
   scroll-snap-type: y mandatory;
-  pointer-events: none; 
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -116,7 +116,7 @@
   justify-content: center;
 }
 
-.container .sticky .el .imageContainer .overlay button {
+#button {
   margin-top: 10px;
   color: white;
   border: none;
@@ -140,42 +140,42 @@
     width: 26%;
     height: 24%;
   }
-  
+
   .container .sticky .el:nth-of-type(2) .imageContainer {
     top: -26vh;
     left: 0vw;
     width: 26%;
     height: 24%;
   }
-  
+
   .container .sticky .el:nth-of-type(3) .imageContainer {
     top: -26vh;
     left: -27vw;
     width: 26%;
     height: 24%;
   }
-  
+
   .container .sticky .el:nth-of-type(4) .imageContainer {
     top: -26vh;
     left: 27vw;
     width: 26%;
     height: 24%;
   }
-  
+
   .container .sticky .el:nth-of-type(5) .imageContainer {
     top: 25vh;
     left: 0vw;
     width: 26%;
     height: 24%;
   }
-  
+
   .container .sticky .el:nth-of-type(6) .imageContainer {
     top: 25vh;
     left: -27vw;
     width: 26%;
     height: 24%;
   }
-  
+
   .container .sticky .el:nth-of-type(7) .imageContainer {
     top: 25vh;
     left: 27vw;
@@ -216,11 +216,12 @@
   }
 
   .button-text {
-    font-size: 5px;
+    font-size: 3px;
   }
 
-  .container .sticky .el .imageContainer .overlay button {
-   font-size: 8px;
+  #button {
+    min-width: 25px;
+    font-size: 5px;
   }
 }
 
@@ -230,17 +231,11 @@
   }
 
   .button-text {
-    font-size: 4px;
+    font-size: 2px;
   }
 
-  .container .sticky .el .imageContainer .overlay button {
-    color: white;
-    border: none;
-    border-bottom: 0.5px solid white;
-    border-radius: 0px;
-    padding: 0px 3px;
-    text-shadow: 1px 1px 1px black;
-    pointer-events: all;
-    font-size: 7px;
+  #button {
+    font-size: 4px;
+    min-width: 20px;
   }
 }

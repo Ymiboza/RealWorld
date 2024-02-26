@@ -115,7 +115,8 @@ const userSlice = createSlice({
     user: null,
     status: null,
     error: null,
-    image: "https://i.pinimg.com/originals/03/fd/dc/03fddc06151ab5228fc38f33494f53d8.jpg",
+    image:
+      "https://i.pinimg.com/originals/03/fd/dc/03fddc06151ab5228fc38f33494f53d8.jpg",
   },
   reducers: {
     logOut(state) {
@@ -125,7 +126,7 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createUser.pending, (state,action) => {
+      .addCase(createUser.pending, (state, action) => {
         state.status = "pending";
         state.error = action.payload;
       })
@@ -139,9 +140,9 @@ const userSlice = createSlice({
         state.status = "rejected";
         state.error = action.payload;
       })
-      .addCase(loginUser.pending, (state) => {
+      .addCase(loginUser.pending, (state, action) => {
         state.status = "pending";
-        state.error = null;
+        state.error = action.payload;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.status = "resolved";

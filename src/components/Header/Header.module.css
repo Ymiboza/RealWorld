@@ -91,3 +91,70 @@
   border: 1px solid #09da91;
 }
 
+#menu {
+  display: none;
+}
+
+@media (max-width: 965px) {
+  #header-title {
+    font-size: 35px;
+    margin-left: 10px;
+  }
+
+  .header-buttons {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  #menu {
+    display: block;
+    background-color: black;
+    margin-right: 10px;
+    color: white;
+  }
+
+  #menu:hover {
+    color: #09da91;
+  }
+
+  .header-user {
+    display: none;
+  }
+
+  .header-user-menu {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #header-button-signIn {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 19px;
+  }
+  
+  #header-button-signUp {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 19px;
+  }
+
+  #create-article {
+    font-size: 19px;
+    border: 1px solid white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #log-out {
+    font-size: 19px;
+    margin-right: 10px;
+  }
+
+}

@@ -100,7 +100,7 @@ const ZoomParallax = () => {
                 {pictures[index].src === image.Picture7 && (
                   <div className={styles.overlay}>
                     <Link to={"/articles"}>
-                      <Button variant="outlined" color="inherit">
+                      <Button id={styles["button"]} variant="outlined" color="inherit">
                         ENTER
                       </Button>
                     </Link>

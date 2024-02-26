@@ -65,14 +65,9 @@ const EditArticle = () => {
     <div className={styles.container}>
       <Card id={styles["create-post"]}>
         <Typography
+        id={styles.title}
           variant="h4"
           component="h4"
-          style={{
-            fontFamily: "Regular",
-            fontSize: "40px",
-            textAlign: "center",
-            marginTop: "50px",
-          }}
         >
           Edit article
         </Typography>
@@ -157,7 +152,7 @@ const EditArticle = () => {
                 {tags &&
                   tags.map((tag, index) => (
                     <div key={index} id={styles["tag-button"]}>
-                      <Box id={styles["tags"]}>{tag}</Box>
+                      <Box id={styles["tags"]}>{tag.length > 10 ? `${tag.slice(0, 10)}...` : tag}</Box>
                       <Button
                         id={styles["create-delete-button"]}
                         variant="outlined"

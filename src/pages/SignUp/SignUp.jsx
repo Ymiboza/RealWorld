@@ -58,20 +58,18 @@ const SignUp = () => {
   };
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
-
 
   useEffect(() => {
     if (formSubmitted && error === null) {
       navigate(-1);
       reset();
     } else if (error && error.email) {
-      setOpen(true)
+      setOpen(true);
       reset();
     }
   }, [formSubmitted, error, reset, navigate]);
@@ -80,29 +78,18 @@ const SignUp = () => {
     <>
       {error && error.email && (
         <Snackbar open={open} autoHideDuration={2500} onClose={handleClose}>
-        <Alert
-          onClose={handleClose}
-          severity="error"
-          variant="filled"
-          sx={{ width: '100%' }}
-        >
-          Email is already taken!
-        </Alert>
-      </Snackbar>
+          <Alert
+            onClose={handleClose}
+            severity="error"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            Email is already taken!
+          </Alert>
+        </Snackbar>
       )}
       <div className={styles["signUp-container"]}>
-        <Typography
-          style={{
-            fontFamily: "Regular",
-            fontSize: "20px",
-            marginTop: "50px",
-            marginBottom: "20px",
-            textAlign: "center",
-            color: "white",
-          }}
-        >
-          Create new account
-        </Typography>
+        <Typography id={styles["title"]}>Create new account</Typography>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className={styles["signUp-form"]}
@@ -207,11 +194,6 @@ const SignUp = () => {
           control={<Checkbox onChange={handleCheckboxChange} color="success" />}
           label="I agree to the processing of my personal 
         information"
-          style={{
-            color: "white",
-            marginLeft: "25px",
-            fontFamily: "Regular",
-          }}
         />
         <div className={styles["button-block"]}>
           <Button
@@ -225,6 +207,7 @@ const SignUp = () => {
           </Button>
           <Typography
             variant="body2"
+            id={styles["link-text"]}
             style={{ color: "white", marginTop: "10px", fontFamily: "Regular" }}
           >
             Already have an account?{" "}
