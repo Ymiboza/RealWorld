@@ -28,6 +28,7 @@ const Header = () => {
   }, [dispatch]);
 
   const logOutHandler = async () => {
+    toggleDrawer(false)
     await dispatch(logOut());
     dispatch(getArticles());
   };
@@ -122,7 +123,7 @@ const Header = () => {
           <div className={styles["header-user-menu"]}>
             <Link to={"edit-profile"}>
               <Tooltip arrow title="Edit profile" placement="left">
-                <Button id={styles["user"]}>
+                <Button id={styles["user"]} onClick={toggleDrawer(false)}>
                   {user.username}{" "}
                   <Avatar
                     id={styles["avatar"]}
@@ -138,7 +139,7 @@ const Header = () => {
               </Tooltip>
             </Link>
             <Link to={"create-article"}>
-              <Button id={styles["create-article"]}>Create article</Button>
+              <Button id={styles["create-article"]} onClick={toggleDrawer(false)}>Create article</Button>
             </Link>
             <Link to={"articles"}>
               <Button id={styles["log-out"]} onClick={logOutHandler}>
@@ -149,12 +150,12 @@ const Header = () => {
         ) : (
           <>
             <Link to={"/sign-in"}>
-              <Button id={styles["header-button-signIn"]} variant="text">
+              <Button id={styles["header-button-signIn"]} onClick={toggleDrawer(false)} variant="text">
                 Sign In
               </Button>
             </Link>
             <Link to={"/sign-up"}>
-              <Button id={styles["header-button-signUp"]} variant="outlined">
+              <Button id={styles["header-button-signUp"]} onClick={toggleDrawer(false)} variant="outlined">
                 Sign Up
               </Button>
             </Link>
